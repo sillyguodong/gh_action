@@ -11,3 +11,5 @@ jobs:
     steps:
       - name: Print something
         run: echo "Hello Gitea!"
+      - name: Print something else
+        run: echo "Hello Gitea again!"
