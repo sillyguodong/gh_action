@@ -1,46 +1,13 @@
-name: ci
+name: Test Gitea Repository Mirror
 
 on:
-  workflow_dispatch:
-  release:
-    types: [published]
-  # push:
-  #   branches:
-  #     - "main"
-  #   tags:
-  #     - "v*"
-  # pull_request:
-  #   branches:
-  #     - "main"
-  #     - "test/*"
+  push:
+    branches:
+      - main
 
 jobs:
-  docker:
+  test:
     runs-on: ubuntu-latest
-    container: catthehacker/ubuntu:act-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: sillyguodong/ghbuild
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-      - name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          context: .
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          provenance: false
+      - name: Print something
+        run: echo "Hello Gitea!"
