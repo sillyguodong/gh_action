@@ -15,4 +15,4 @@ jobs:
       - name: Print something else
         run: echo "Hello Gitea again!!..."
       - name: Print bye
-        run: echo "Bye Gitea! :)"
+        run: echo "Bye Gitea!... :)"
