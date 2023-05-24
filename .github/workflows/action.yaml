@@ -18,3 +18,5 @@ jobs:
         run: echo "Bye Gitea! :)"
       - name: Print t2
         run: echo "hello branch test/t2..."
+      - name: Print t3
+        run: echo "hello branch test/t3..."
