@@ -19,4 +19,4 @@ jobs:
       - name: Print t2
         run: echo "hello branch test/t2..."
       - name: Print t3
-        run: echo "hello branch test/t3..."
+        run: echo "hello branch test/t3......."
