@@ -9,12 +9,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Cat docker_tag
-        run: |
-          pwd
-          echo '${{ github.action_path }}'
-          ls -l
-          cat ${{ github.action_path }}/docker_tag
       - name: Setup Composer
         uses: php-actions/composer@v6
         with:
