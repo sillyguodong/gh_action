@@ -9,10 +9,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # - name: Cat docker_tag dir
-      #   run: |
-      #     pwd
-      #     cat ./docker_tag
+      - name: Cat docker_tag
+        run: |
+          pwd
+          cat ./docker_tag
+
       - name: Setup Composer
         uses: php-actions/composer@v6
         # with:
