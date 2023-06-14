@@ -15,7 +15,7 @@ jobs:
           ls ./docker_tag
 
       - name: Setup Composer
-        uses: https://github.com/php-actions/composer@v6
+        uses: php-actions/composer@v6
         # with:
         #   php_version: ${{ matrix.php-version }}
 
