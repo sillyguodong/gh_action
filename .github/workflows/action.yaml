@@ -12,7 +12,7 @@ jobs:
       - name: Cat docker_tag
         run: |
           pwd
-          cat ${{ github.action_path }}
+          echo '${{ github.action_path }}'
           ls -l
           cat ${{ github.action_path }}/docker_tag
       - name: Setup Composer
