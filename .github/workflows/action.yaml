@@ -15,8 +15,8 @@ jobs:
       #     cat ./docker_tag
       - name: Setup Composer
         uses: php-actions/composer@v6
-        # with:
-        #   php_version: ${{ matrix.php-version }}
+        with:
+          php_version: "7.2"
 
       - run: echo "Composer dependencies have been installed"
 
