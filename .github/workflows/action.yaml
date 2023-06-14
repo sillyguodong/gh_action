@@ -1,16 +1,24 @@
-name: Test Gitea Repository Mirror
-
-on:
-  push:
-    branches:
-      - main
-      - "test/*"
+name: CI
+on: [push, issue_comment]
 
 jobs:
-  test:
+  build-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Print something
-        run: echo "Hello Gitea!"
-      - name: Print something else
-        run: echo "Hello Gitea again!!... and again!!"
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cat docker_tag dir
+        run: |
+          pwd
+          ls ./docker_tag
+
+      - name: Setup Composer
+        uses: https://github.com/php-actions/composer@v6
+        # with:
+        #   php_version: ${{ matrix.php-version }}
+
+      - run: echo "Composer dependencies have been installed"
+
+      - run: vendor/bin/phpunit
